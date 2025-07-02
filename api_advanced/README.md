@@ -28,4 +28,4 @@ You must use the Requests module for sending HTTP requests to the Reddit API
 
 WARNING:
 
-Reddit API has rate limit and specific UserAgent to set - please read this article and follow the OAuth authentication process
+Reddit API has rate limit and specific UserAgent to set - please read this article and follow the OAuth authentication process.
