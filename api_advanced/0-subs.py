@@ -3,7 +3,6 @@
  for a given subreddit using Reddit's API."""
 
 import requests
-import sys
 
 
 def number_of_subscribers(subreddit):
