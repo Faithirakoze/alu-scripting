@@ -9,6 +9,7 @@ If the subreddit is invalid or cannot be accessed, it returns 0.
 """
 
 import requests
+import sys
 
 
 def number_of_subscribers(subreddit):
@@ -34,3 +35,14 @@ def number_of_subscribers(subreddit):
 
     except Exception:
         return 0
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Please pass an argument for the subreddit to search.")
+        sys.exit(1)
+    else:
+        subreddit = str(sys.argv[1])
+        count = number_of_subscribers(subreddit)
+        print(count)
+        sys.exit(0)
