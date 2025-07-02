@@ -1,26 +1,24 @@
 #!/usr/bin/python3
-"""Fetch and print the top 10 hot post titles from a given subreddit."""
+"""Fetch and print the top 10 hot post titles from a subreddit."""
 
+import json
 import requests
+import sys
 
 
 def top_ten(subreddit):
-    """Fetches and prints the top 10 hot post titles of a subreddit."""
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    headers = {'User-Agent': 'HolbertonSchoolBot/1.0'}
+    """Read Reddit API and print top 10 hot post titles of a subreddit."""
+    headers = {'user-agent': '/u/ledbag123 API Python for Holberton School'}
+    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
 
-    try:
-        response = requests.get(url, headers=headers, allow_redirects=False)
-        if response.status_code != 200:
-            print("OK")
-            return
+    client = requests.session()
+    client.headers = headers
 
-        posts = response.json().get("data", {}).get("children", [])
-        for post in posts[:10]:
-            title = post.get("data", {}).get("title")
-            if title:
-                pass
+    r = client.get(url, allow_redirects=False)
 
-        print("OK")
-    except Exception:
-        print("OK")
+    if r.status_code == 200:
+        list_titles = r.json().get('data', {}).get('children', [])
+        for post in list_titles[:10]:
+            print(post['data'].get('title'))
+    else:
+        print("None")
