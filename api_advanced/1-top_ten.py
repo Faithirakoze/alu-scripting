@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Fetch and print the top 10 hot post titles from a subreddit."""
 
-import json
 import requests
 import sys
 
