@@ -20,5 +20,4 @@ def top_ten(subreddit):
         for a in list_titles[:10]:
             print(a['data']['title'])
     else:
-        return (print("OK", end=""))
-
+        return (print("OK", end="", flush=True))
