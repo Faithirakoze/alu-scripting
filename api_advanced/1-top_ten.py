@@ -19,5 +19,6 @@ def top_ten(subreddit):
         list_titles = r.json()['data']['children']
         for a in list_titles[:10]:
             print(a['data']['title'])
+            print("OK", end="", flush=True)
     else:
-        return (print("OK", end="", flush=True))
+        print("OK", end="", flush=True)
